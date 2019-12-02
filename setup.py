@@ -5,7 +5,7 @@ with open('README.md', 'r') as file:
 
 setuptools.setup(
     name='globber',
-    version='0.2.0',
+    version='0.2.1',
     author='Jaakko Kangasharju',
     author_email='ashar@iki.fi',
     description='Library for string matching with glob patterns',
