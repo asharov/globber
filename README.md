@@ -1,5 +1,10 @@
 # Globber
 
+[![Build Status](https://travis-ci.com/asharov/globber.svg?branch=master)](https://travis-ci.com/asharov/globber)
+[![codecov](https://codecov.io/gh/asharov/globber/branch/master/graph/badge.svg)](https://codecov.io/gh/asharov/globber)
+![PyPI](https://img.shields.io/pypi/v/globber)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 Globber is a Python library for matching file names against
 glob patterns. In contrast to other glob-matching libraries,
 it matches arbitrary strings and doesn't require the matched
