@@ -1,8 +1,15 @@
 language: python
 python:
-  - "3.5"
-  - "3.8"
+  - '3.5'
+  - '3.8'
 script:
   - coverage run -m unittest tests
 after_success:
   - codecov
+deploy:
+  provider: pypi
+  user: __token__
+  password:
+    secure: iONUt9VUN66UE8smojq8v3Ro4QB83UIdYlJ1Namxj8S3zg0QgiNLM1l2vLIt0SK0D/C3HX4oMXgGn8Cuuz8OQCfr/2f0LWj81XWBjZItrYE4vo7nbLZwd10vvN091c5QsvGnBQmJ2sqo3ZAb4nrj0ul5sf6ljb+SkCbOiacaGZ+/RPgKkYUzrCpBYtCXM6l/jHPV2fFO+NQ67w81lJsABQVAZvqnDZQgcK2/awyHSlmhW06KhHJprG+N7zkENfwOUhwOhbklZyGfn0GzG5DwPhqrbCqnRaWNbGD8Ynx8Zn0ezEWv8JtpywR3TDt9/1oLCrW3RaCPWA9x4V8KI/+InpKZCvR2d9/X8y+OdEjEU/pA/DkguEHIpk0csFi+LmUy9TbDQyvztkeEkHSQa4dqlZYTYvkQqVaxDoU1ALKMNcxuV3m07b8I0HlHmZLIKas1OEinZ64+g/46dClOx9k9XyrqJwk/78eT67IpROZOU8JqappiBvW0okHV2z4wHoOavSEP2Vqy1eFwdYrbxMwiYiIzOLcpV0XfKL38YAcAg7XAVkterjhZ5HDTjFwmtMPzP7mYiKSJ9Na1c8FVjq6fQDAftIZT54Ur8GeR4edw6VysyX5RDmJnSCvJsjHovTvfLJ5LVk9yCuf2eGvhenBd4Y0BqvWPna64L8v9fG1aqiA=
+  on:
+    tags: true
