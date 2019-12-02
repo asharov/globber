@@ -15,6 +15,10 @@
 import os
 import re
 
+_double_star_after_invalid_regex = re.compile(r'[^/\\]\*\*')
+_double_star_first_before_invalid_regex = re.compile('^\\*\\*[^/]')
+_double_star_middle_before_invalid_regex = re.compile(r'[^\\]\*\*[^/]')
+
 
 def _match_component(pattern_component, file_name_component):
     if len(pattern_component) == 0 and len(file_name_component) == 0:
@@ -69,8 +73,8 @@ def match(pattern, file_name):
     :param file_name: The file name to match against. The path separator in file names is the platform separator
     :return: True if the pattern matches, False otherwise
     """
-    if re.search(r'[^/\\]\*\*', pattern) is not None or re.search('^\\*\\*[^/]', pattern) is not None or re.search(
-            r'[^\\]\*\*[^/]', pattern) is not None:
+    if _double_star_after_invalid_regex.search(pattern) is not None or _double_star_first_before_invalid_regex.search(
+            pattern) is not None or _double_star_middle_before_invalid_regex.search(pattern) is not None:
         raise ValueError('** in {} not alone between path separators'.format(pattern))
     pattern = pattern.rstrip('/')
     file_name = file_name.rstrip('/')
