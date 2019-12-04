@@ -3,7 +3,7 @@ python:
   - '3.5'
   - '3.8'
 script:
-  - coverage run -m unittest tests
+  - coverage run --source globber -m unittest tests
 after_success:
   - codecov
 deploy:
